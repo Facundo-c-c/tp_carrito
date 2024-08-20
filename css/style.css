@@ -1,0 +1,32 @@
+@font-face {
+    font-family: nerd;
+    src: url('/0xProto/0xProtoNerdFont-Regular.ttf');
+}
+*{
+    font-family: nerd;
+}
+#logo{
+    width: 50px;
+    height: 50px;
+}
+#cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #191919;
+} 
+.card{
+    margin: 15px;
+    color: ghostwhite;
+    background-color: #222;
+    border: rgb(154, 129, 129) solid;
+}
+
+img{
+    width: 300px;
+    height: 300px;
+}
+
+list-group-item{
+ 
+}
