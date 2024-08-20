@@ -218,8 +218,8 @@ distros.forEach(distro => {
         <li class="list-group-item"> User: ${distro.usuario}</li>
         <li class="list-group-item"> Date: ${distro.lanzamiento}</li>
     <div class="card-body">
-        <a href="#" class="card-link">Card link</a>
-        <a href="#" class="card-link">Another link</a>
+        <a href="#" class="card-link">More info</a>
+        <a href="#" class="card-link">Home page</a>
   </div>
 
     </div>

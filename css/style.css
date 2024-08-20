@@ -17,10 +17,11 @@
 } 
 .card{
     margin: 15px;
-    border: rgb(154, 129, 129) solid;
+    border: rgba(117, 117, 117, 0.28) solid;
 }
 
 img{
     width: 300px;
     height: 300px;
+    padding: 5px;
 }
