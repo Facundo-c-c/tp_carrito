@@ -24,11 +24,23 @@
             <li class="nav-item">
               <a class="nav-link" href="#footer">Acerca</a>
             </li>
+            <li>
             </li>
           </ul>
           <form class="d-flex">
-            <input class="form-control me-sm-2" type="search" placeholder="Search">
-            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+            <select name="filtrar por init" onchange="filtrar_init(value)" class="form-select">
+              <option selected disabled>Buscar por init</option>
+              <option value="Runit">Runit</option>
+              <option value="systemd">systend</option>
+              <option value="Openrc">Openrc</option>
+              <option value="BSD-style">BSD-style</option>
+              <option value="Todos">Todos</option>
+              <option value="No-systemd">No-systemd</option>
+              <option value="SysV">SysV</option>
+              <option value="Cualquiera">Cualquiera</option>
+            </select>
+            <input class="form-control me-sm-2" type="text" placeholder="Buscar" id="input_t">
+            <input type="button" value="Buscar" onclick="buscar()">
           </form>
         </div>
       </div>

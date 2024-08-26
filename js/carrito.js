@@ -1,4 +1,4 @@
-const distros = [
+const mis_distros = [
     { //agregar 2 categorias mas link distro y pequeña descripccion con un modal, 
         id: 1,
         nombre: "Void",
@@ -36,7 +36,7 @@ const distros = [
         lanzamiento: 2002,
         init: "systemd",
         binario: "Binary",
-        base: "Independent / Crux",
+        base: "Independent",
         usuario: "Avanzado"
     },
     {
@@ -51,7 +51,7 @@ const distros = [
     }, {
         id: 6,
         nombre: "Fedora",
-        logo: "/assets/distros/6_fedora.svg",
+        logo: "/assets/distros/6_fedora.png",
         lanzamiento: 2003,
         init: "systemd",
         binario: "Binary",
@@ -113,7 +113,7 @@ const distros = [
         nombre: "LFS", //el concha su madre
         logo: "/assets/distros/12_lfs.png",
         lanzamiento: 1999,
-        init: "Any",
+        init: "Todos",
         binario: "Source based",
         base: "From scratch",
         usuario: "Experto +"
@@ -123,7 +123,7 @@ const distros = [
         nombre: "Parabola",
         logo: "/assets/distros/13_parabola.svg",
         lanzamiento: 2009,
-        init: "Openrc / systemd",
+        init: "Openrc",
         binario: "Binary",
         base: "Arch",
         usuario: "Avanzado"
@@ -161,7 +161,7 @@ const distros = [
         id: 17,
         nombre: "Tiny core",
         logo: "/assets/distros/17_tiny.jfif",
-        lanzamiento: "",
+        lanzamiento: "2009",
         init: "BSD-style",
         binario: "Binary",
         base: "Independent",
@@ -182,7 +182,7 @@ const distros = [
         nombre: "Slackware",
         logo: "/assets/distros/19_slack.jfif",
         lanzamiento: 1993,
-        init: "system V",
+        init: "SysV",
         binario: "Source Based",
         base: "Independent",
         usuario: "Experto"
@@ -199,11 +199,16 @@ const distros = [
     }, 
 ]
 
-distros.forEach(distro => {
-
+function mostrar_distros(distros){
+    
     let contendor = document.getElementById("cards");
+    contendor.innerHTML = "";
 
-    let card = document.createElement("div")
+    distros.forEach(distro => {
+
+
+
+    let card = document.createElement("div");
     card.innerHTML = `
 
     <div class="card" style="width: 18rem;">
@@ -217,9 +222,9 @@ distros.forEach(distro => {
         <li class="list-group-item"> Base: ${distro.base}</li>
         <li class="list-group-item"> User: ${distro.usuario}</li>
         <li class="list-group-item"> Date: ${distro.lanzamiento}</li>
+        <li class="list-group-item"> <input type="number" name="cantidad" id="${this.id}" class="cant" placeholder="Cantidad"> </li>
     <div class="card-body">
-        <a href="#" class="card-link">More info</a>
-        <a href="#" class="card-link">Home page</a>
+        <button type="button" class="btn btn-primary""> Agregar </button>
   </div>
 
     </div>
@@ -229,3 +234,26 @@ distros.forEach(distro => {
     contendor.appendChild(card);
 
 });
+}
+
+mostrar_distros(mis_distros)
+
+function filtrar_init(opcion){
+
+    if (opcion === "Cualquiera"){
+       return mostrar_distros(mis_distros);
+    } 
+
+    const filtro = mis_distros.filter(item => item.init === opcion);
+
+    mostrar_distros(filtro);    
+}
+
+function buscar (tipo){
+
+    const valor_buscar = document.getElementById("input_t").value.toLowerCase();
+    
+    const filtro = mis_distros.filter(distro => distro.nombre.toLowerCase().includes(valor_buscar))
+
+    mostrar_distros(filtro)
+}
