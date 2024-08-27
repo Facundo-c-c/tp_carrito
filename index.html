@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Linux distros</title>
-  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/bootstrap.min.css" id="themes">
 </head>
 <body>
   <header>
@@ -24,6 +24,9 @@
             <li class="nav-item">
               <a class="nav-link" href="#footer">Acerca</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" onclick="agregar_carro()"></a>
+            </li>
             <li>
             </li>
           </ul>
@@ -39,8 +42,7 @@
               <option value="SysV">SysV</option>
               <option value="Cualquiera">Cualquiera</option>
             </select>
-            <input class="form-control me-sm-2" type="text" placeholder="Buscar" id="input_t">
-            <input type="button" value="Buscar" onclick="buscar()">
+            <input class="form-control me-sm-2" type="text" placeholder="Buscar" id="input_t" oninput="buscar()">
           </form>
         </div>
       </div>
@@ -76,7 +78,7 @@
 
 </body>
 
-<link rel="stylesheet" href="/css/bootswatch.min.css">
+<link rel="stylesheet" href="/css/bootswatch_dark.min.css">
 <link rel="stylesheet" href="/css/style.css"> <!--mis archivos--->
 <script src="/js/carrito.js"></script>
 

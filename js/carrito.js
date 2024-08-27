@@ -204,9 +204,11 @@ function mostrar_distros(distros){
     let contendor = document.getElementById("cards");
     contendor.innerHTML = "";
 
+    var contendor_btn = 0
+
     distros.forEach(distro => {
 
-
+    contendor_btn++
 
     let card = document.createElement("div");
     card.innerHTML = `
@@ -216,22 +218,30 @@ function mostrar_distros(distros){
     <div class="card-body">
         <h5 class="card-title">${distro.nombre}</h5>
     </div>
-    <ul class="list-group list-group-flush">
+    <ul class="list-group list-group-flush" id="${distro.id}">
         <li class="list-group-item"> Init: ${distro.init}</li>
         <li class="list-group-item"> Soruce: ${distro.binario}</li>
         <li class="list-group-item"> Base: ${distro.base}</li>
         <li class="list-group-item"> User: ${distro.usuario}</li>
         <li class="list-group-item"> Date: ${distro.lanzamiento}</li>
-        <li class="list-group-item"> <input type="number" name="cantidad" id="${this.id}" class="cant" placeholder="Cantidad"> </li>
-    <div class="card-body">
-        <button type="button" class="btn btn-primary""> Agregar </button>
-  </div>
+        <li class="list-group-item"> <input type="number" name="cantidad" placeholder="Cantidad" min="1"> </li>
+    </ul>
+    </div>` 
 
-    </div>
-  
-
-    `
     contendor.appendChild(card);
+
+        let boton = document.createElement("button");
+        let btn_cont = document.getElementById((distro.id))
+  
+        boton.classList.add("btn");
+        boton.classList.add("btn-primary")
+        boton.onclick = function(){
+            agregar_carro(distro);
+        }
+
+        boton.textContent = "Agergar"
+
+        btn_cont.appendChild(boton);
 
 });
 }
@@ -249,11 +259,20 @@ function filtrar_init(opcion){
     mostrar_distros(filtro);    
 }
 
-function buscar (tipo){
+function buscar (){
 
     const valor_buscar = document.getElementById("input_t").value.toLowerCase();
     
     const filtro = mis_distros.filter(distro => distro.nombre.toLowerCase().includes(valor_buscar))
 
     mostrar_distros(filtro)
+}
+
+function agregar_carro(distro){
+
+    let input = document.getElementById(distro.id).querySelector("input").value;
+
+    console.log = (input)
+    console.log = (distro);
+
 }
