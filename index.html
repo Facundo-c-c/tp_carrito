@@ -7,6 +7,7 @@
   <title>Linux distros</title>
   <link rel="stylesheet" href="/css/bootstrap.min.css" id="themes">
 </head>
+
 <body>
   <header>
     <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
@@ -25,7 +26,7 @@
               <a class="nav-link" href="#footer">Acerca</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" onclick="agregar_carro()"></a>
+              <a class="nav-link" onclick="tema()" id="btn_theme" ></a>
             </li>
             <li>
             </li>
@@ -50,30 +51,64 @@
   </header>
   <main>
     <section id="cards"></section>
-  </main>
-    <footer id="footer">
-      <section id="dis_seccion">
-        <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark"  style="display: flex; justify-content: center;">
-          <div class="container-flex">
-            <div class="collapse navbar-collapse" id="navbarColor01">
-              <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                  <a class="nav-link" href="https://distrowatch.com/">Fuente</a>
-                </li>
-                <li>
-                  <img src="/assets/logo-cet-30.png" alt="Logo cet 30" id="logo">
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="qsy">Acerca</a>
-                </li>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-      </section>
-  </footer>
+    <section id="tablas">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>
+              Nombre
+            </th>
+            <th>
+              Init
+            </th>
+            <th>
+              base
+            </th>
+            <th>
+              Software
+            </th>
+            <th>
+              Cantidad
+            </th>
+            <th>
 
+            </th>
+          </tr>
+        </thead>
+        <tbody id="t_body">
+          <tfoot>
+            <td colspan="6">Distros en el carro</td>
+          </tfoot>
+        </tbody>
+      </table>
+
+      
+
+    </section>
+  </main>
+  <footer id="footer">
+    <section id="dis_seccion">
+      <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark"
+        style="display: flex; justify-content: center;">
+        <div class="container-flex">
+          <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="https://distrowatch.com/">Fuente</a>
+              </li>
+              <li>
+                <img src="/assets/logo-cet-30.png" alt="Logo cet 30" id="logo">
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="qsy">Acerca</a>
+              </li>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </section>
+  </footer>
   <script src="/js/bootstrap.min.js"></script>
 
 </body>
@@ -81,5 +116,6 @@
 <link rel="stylesheet" href="/css/bootswatch_dark.min.css">
 <link rel="stylesheet" href="/css/style.css"> <!--mis archivos--->
 <script src="/js/carrito.js"></script>
+<script src="/js/tema.js"></script>
 
 </html>

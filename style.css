@@ -1,0 +1,58 @@
+@font-face {
+    font-family: nerd;
+    src: url('/0xProto/0xProtoNerdFont-Regular.ttf');
+}
+*{
+    font-family: nerd;
+}
+#logo{
+    width: 50px;
+    height: 50px;
+}
+#cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #191919;
+} 
+.card{
+    margin: 15px;
+    border: rgba(117, 117, 117, 0.28) solid;
+    justify-content: center;
+    align-items: center;
+}
+
+img{
+    width: 300px;   
+    height: 300px;
+    padding: 5px;
+    opacity: 0.90;
+    transition: 0.5s;
+}
+img:hover{
+    opacity: 1;
+    transition: 1s;
+}
+.cant{
+    background-color: #191919;
+    border-radius: 5px;
+    color: white;
+}
+.btn{
+    margin: 10px;
+}
+input,
+select{
+    margin-left: 10px;
+    margin-top: 10px;
+    background-color: #191919;
+}
+.texto{
+    text-align: center;
+    margin-top: 5px;
+}
+#tablas{
+    margin: 20px;
+    text-align: center;
+    display: none;
+}
