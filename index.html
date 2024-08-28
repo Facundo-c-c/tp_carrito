@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Linux distros</title>
-  <link rel="stylesheet" href="/css/bootstrap.min.css" id="themes">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
 </head>
 
 <body>
@@ -51,10 +51,13 @@
   </header>
   <main>
     <section id="cards"></section>
-    <section id="tablas">
+    <section id="tablas" class="oculta">
       <table class="table">
         <thead>
           <tr>
+            <th>
+              Item
+            </th>
             <th>
               Nombre
             </th>
@@ -76,14 +79,21 @@
           </tr>
         </thead>
         <tbody id="t_body">
-          <tfoot>
-            <td colspan="6">Distros en el carro</td>
-          </tfoot>
-        </tbody>
+
+        </tbody>          
+        <tfoot>
+            <td colspan="7">Distros en el carro</td>
+        </tfoot>
       </table>
-
-      
-
+      <div id="aceptar">
+        <div class="card text-center mb-3" style="width: 18rem;"  >
+          <div class="card-body">
+            <h5 class="card-title">Comprar</h5>
+            <p class="card-text">al realizar la compra se imprimira un ticket</p>
+            <a href="" class="btn btn-primary">Aceptar</a>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
   <footer id="footer">
@@ -110,10 +120,9 @@
     </section>
   </footer>
   <script src="/js/bootstrap.min.js"></script>
-
 </body>
 
-<link rel="stylesheet" href="/css/bootswatch_dark.min.css">
+<link rel="stylesheet" href="/css/bootswatch_dark.min.css" id="themes">
 <link rel="stylesheet" href="/css/style.css"> <!--mis archivos--->
 <script src="/js/carrito.js"></script>
 <script src="/js/tema.js"></script>

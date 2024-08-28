@@ -40,6 +40,8 @@ img:hover{
 }
 .btn{
     margin: 10px;
+    text-align: center;
+
 }
 input,
 select{
@@ -54,5 +56,11 @@ select{
 #tablas{
     margin: 20px;
     text-align: center;
+} 
+.oculta{
     display: none;
+}
+#aceptar{
+    display: flex;
+    justify-content: center;
 }

@@ -1,5 +1,7 @@
 const carrito = [] //declaracion de variables globales al inicio
 
+let bandera_carrito = true;
+
 const mis_distros = [
     {
         id: 1,
@@ -228,12 +230,12 @@ function mostrar_distros(distros) {
         let input = document.createElement("input");
 
         imagen.src = distro.logo; //defino los valores de cada etiqueta
-        nombre.textContent = distro.nombre;
-        init.textContent = distro.init;
-        año.textContent = distro.lanzamiento;
-        base.textContent = distro.año;
-        usuario.textContent = distro.usuario;
-        binario.textContent = distro.binario;
+        nombre.textContent =  `${distro.nombre}`;
+        init.textContent = `Init: ${distro.init}`;
+        año.textContent = `Año: ${distro.lanzamiento}`;
+        base.textContent =`Base: ${distro.base}`;
+        usuario.textContent = `Usuario: ${distro.usuario}`;
+        binario.textContent = `Software: ${distro.binario}`;
         boton.textContent = "Comprar  "
 
 
@@ -287,15 +289,15 @@ function buscar() { //buscar en tiempo real
 
 function agregar_carrito(distro, input) {
 
-    //console.log(distro);
-    //console.log(ingreso)
+    console.log(distro);
+    console.log(input);
 
     let cantidad = parseInt(input);
 
     if (!isNaN(cantidad)) {
         const productoEncontrado = carrito.find(itemCarro => itemCarro.id === distro.id);
         if (productoEncontrado) { //si esta en el carro, verifico la cantidad
-            productoEncontrado.cantidad += cantidad;
+            productoEncontrado.input = cantidad;
         } else { //si no esta lo agrego al carro
             distro.input = input;
             carrito.push(distro);
@@ -307,15 +309,20 @@ function agregar_carrito(distro, input) {
     //console.log(carrito);
     //console.log(distro.input);
 
-    actualizar_carro()
+    actualizar_carro();
 }
 
 function actualizar_carro(){
 
-    (document.getElementById("tablas")).style.display = "contents"; //muestro la tabla
-
+    do{
+    (document.getElementById("tablas")).classList.remove("oculta")//muestro la tabla
+    bandera_carrito = false
+    }while(bandera_carrito)
+    
     let contenedor = document.getElementById("t_body"); //busco el table body
     contenedor.innerHTML = "";
+
+    let cont = 1;
 
     carrito.forEach(distro => {
 
@@ -323,16 +330,19 @@ function actualizar_carro(){
 
     tr.innerHTML = `
     
-    <td> ${distro.nombre} </td>
-    <td> ${distro.init} </td>
-    <td> ${distro.base} </td>
-    <td> ${distro.binario} </td>
+    <td>${cont}</td> </td> 
+    <td>${distro.nombre} </td>
+    <td> Init: ${distro.init} </td>
+    <td> Base: ${distro.base} </td>
+    <td> Software: ${distro.binario} </td>
     <td> ${distro.input} </td> 
-    <td>  </td> </td> 
+    <td> <button class="btn btn-secondary" onclick="" >X</button> </td> </td> 
 
     `
+    cont++
+ 
     contenedor.appendChild(tr); //mando al html
-
+    
     });
 
 } //de no ser porque comente todo me hubiese muerto cuando lo tuve que rearmar, amen por el profe que rompe las bolas por eso 
