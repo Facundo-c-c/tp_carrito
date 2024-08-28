@@ -18,6 +18,8 @@
 .card{
     margin: 15px;
     border: rgba(117, 117, 117, 0.28) solid;
+    justify-content: center;
+    align-items: center;
 }
 
 img{
@@ -37,10 +39,20 @@ img:hover{
     color: white;
 }
 .btn{
-    text-align: center;
+    margin: 10px;
 }
 input,
 select{
     margin-left: 10px;
     margin-top: 10px;
+    background-color: #191919;
+}
+.texto{
+    text-align: center;
+    margin-top: 5px;
+}
+#tablas{
+    margin: 20px;
+    text-align: center;
+    display: none;
 }

@@ -1,5 +1,7 @@
+const carrito = [] //declaracion de variables globales al inicio
+
 const mis_distros = [
-    { //agregar 2 categorias mas link distro y pequeña descripccion con un modal, 
+    {
         id: 1,
         nombre: "Void",
         logo: "/assets/distros/1_void.svg",
@@ -22,7 +24,7 @@ const mis_distros = [
     {
         id: 3,
         nombre: "Crux",
-        logo: "/assets/distros/3_crux.png", //tratar de arreglar los logos por mi cuenta
+        logo: "/assets/distros/3_crux.png", 
         lanzamiento: 2000,
         init: "BSD-style",
         binario: "Source based",
@@ -57,7 +59,7 @@ const mis_distros = [
         binario: "Binary",
         base: "Independent",
         usuario: "Inexperto"
-    }, 
+    },
     {
         id: 7,
         nombre: "Solus",
@@ -67,7 +69,7 @@ const mis_distros = [
         binario: "Binary",
         base: "Independent",
         usuario: "Inexperto"
-    }, 
+    },
     {
         id: 8,
         nombre: "Gentoo",
@@ -77,7 +79,7 @@ const mis_distros = [
         binario: "Source based",
         base: "Independent",
         usuario: "Experto"
-    }, 
+    },
     {
         id: 9,
         nombre: "Funtoo",
@@ -87,7 +89,7 @@ const mis_distros = [
         binario: "Source-based",
         base: "Gentoo",
         usuario: "Experto"
-    }, 
+    },
     {
         id: 10,
         nombre: "Ubuntu",
@@ -97,7 +99,7 @@ const mis_distros = [
         binario: "Binary",
         base: "Debian",
         usuario: "Inexperto"
-    }, 
+    },
     {
         id: 11,
         nombre: "Artix",
@@ -107,18 +109,18 @@ const mis_distros = [
         binario: "Binary",
         base: "Arch",
         usuario: "Avanza"
-    }, 
+    },
     {
         id: 12,
-        nombre: "LFS", //el concha su madre
+        nombre: "LFS", //el concha su madre, instalacion de un pdf de cientos de paginas
         logo: "/assets/distros/12_lfs.png",
         lanzamiento: 1999,
         init: "Todos",
         binario: "Source based",
         base: "From scratch",
-        usuario: "Experto +"
+        usuario: "Experto +++"
     },
-     {
+    {
         id: 13,
         nombre: "Parabola",
         logo: "/assets/distros/13_parabola.svg",
@@ -127,12 +129,12 @@ const mis_distros = [
         binario: "Binary",
         base: "Arch",
         usuario: "Avanzado"
-    }, 
+    },
     {
         id: 14,
         nombre: "Black Arch",
         logo: "/assets/distros/14_black_arch.png",
-        lanzamiento: "",
+        lanzamiento: "xxxx",
         init: "systemd",
         binario: "Binary",
         base: "Arch",
@@ -146,17 +148,17 @@ const mis_distros = [
         binario: "Binary",
         base: "Ubuntu",
         usuario: "Inexperto"
-    }, 
+    },
     {
         id: 16,
         nombre: "BunsenLabs",
         logo: "/assets/distros/16_bunse.png",
-        lanzamiento: 2024,    
+        lanzamiento: 2024,
         init: "systemd",
         binario: "Binary",
         base: "Debian",
         usuario: "Inexperto"
-    }, 
+    },
     {
         id: 17,
         nombre: "Tiny core",
@@ -176,7 +178,7 @@ const mis_distros = [
         binario: "Binary",
         base: "Independent",
         usuario: "Inexperto"
-    }, 
+    },
     {
         id: 19,
         nombre: "Slackware",
@@ -186,7 +188,7 @@ const mis_distros = [
         binario: "Source Based",
         base: "Independent",
         usuario: "Experto"
-    }, 
+    },
     {
         id: 20,
         nombre: "Alpine",
@@ -196,83 +198,141 @@ const mis_distros = [
         binario: "Binary",
         base: "Independent",
         usuario: "Avanzado"
-    }, 
+    },
 ]
 
-function mostrar_distros(distros){
-    
+function mostrar_distros(distros) {
+
     let contendor = document.getElementById("cards");
     contendor.innerHTML = "";
 
-    var contendor_btn = 0
-
     distros.forEach(distro => {
 
-    contendor_btn++
+        //console.log(distro)
 
-    let card = document.createElement("div");
-    card.innerHTML = `
+        //defino los elementos html
 
-    <div class="card" style="width: 18rem;">
-    <img src="${distro.logo}" class="card-img-top" alt="...">
-    <div class="card-body">
-        <h5 class="card-title">${distro.nombre}</h5>
-    </div>
-    <ul class="list-group list-group-flush" id="${distro.id}">
-        <li class="list-group-item"> Init: ${distro.init}</li>
-        <li class="list-group-item"> Soruce: ${distro.binario}</li>
-        <li class="list-group-item"> Base: ${distro.base}</li>
-        <li class="list-group-item"> User: ${distro.usuario}</li>
-        <li class="list-group-item"> Date: ${distro.lanzamiento}</li>
-        <li class="list-group-item"> <input type="number" name="cantidad" placeholder="Cantidad" min="1"> </li>
-    </ul>
-    </div>` 
+        let card = document.createElement("div"); //defino los contenedores 
+        let div_img = document.createElement("div");
+        let div_texto = document.createElement("div")
+        let div_btn = document.createElement("div")
 
-    contendor.appendChild(card);
-
+        let imagen = document.createElement("img"); //defino los elementos de informacion
+        let nombre = document.createElement("h3");
+        let init = document.createElement("p");
+        let año = document.createElement("p");
+        let base = document.createElement("p")
+        let usuario = document.createElement("p")
+        let binario = document.createElement("p")
         let boton = document.createElement("button");
-        let btn_cont = document.getElementById((distro.id))
-  
+        let input = document.createElement("input");
+
+        imagen.src = distro.logo; //defino los valores de cada etiqueta
+        nombre.textContent = distro.nombre;
+        init.textContent = distro.init;
+        año.textContent = distro.lanzamiento;
+        base.textContent = distro.año;
+        usuario.textContent = distro.usuario;
+        binario.textContent = distro.binario;
+        boton.textContent = "Comprar  "
+
+
+        //Oconsole.log(init);
+
+        card.classList.add("card"); //agrego las clases
+        div_texto.classList.add("texto")
         boton.classList.add("btn");
-        boton.classList.add("btn-primary")
-        boton.onclick = function(){
-            agregar_carro(distro);
+        boton.classList.add("btn-primary");
+        input.classList.add("cant");
+
+        boton.onclick = function () {
+            agregar_carrito(distro, input.value);
         }
 
-        boton.textContent = "Agergar"
+        input.type = "number";
+        input.placeholder = "cantidad";
+        input.min = 1;
 
-        btn_cont.appendChild(boton);
+        div_img.appendChild(imagen); //creo estructura padre hijo html
+        div_texto.append(nombre, init, binario, año, base, usuario, input,)
+        div_btn.appendChild(boton);
+        card.append(div_img, div_texto, div_btn);
 
-});
+        contendor.appendChild(card); //mando al html
+
+    });
 }
 
 mostrar_distros(mis_distros)
 
-function filtrar_init(opcion){
+function filtrar_init(opcion) { //filtrar card segun init 
 
-    if (opcion === "Cualquiera"){
-       return mostrar_distros(mis_distros);
-    } 
+    if (opcion === "Cualquiera") {
+        return mostrar_distros(mis_distros); //muesto el array original 
+    }
 
-    const filtro = mis_distros.filter(item => item.init === opcion);
+    const filtro = mis_distros.filter(item => item.init === opcion); //creo una array filtrado y lo remplazo por el original
 
-    mostrar_distros(filtro);    
+    mostrar_distros(filtro);
 }
 
-function buscar (){
+function buscar() { //buscar en tiempo real
 
-    const valor_buscar = document.getElementById("input_t").value.toLowerCase();
-    
+    const valor_buscar = document.getElementById("input_t").value.toLowerCase(); //paso a minusculas para evitar errores en el === 
+
     const filtro = mis_distros.filter(distro => distro.nombre.toLowerCase().includes(valor_buscar))
 
-    mostrar_distros(filtro)
+    mostrar_distros(filtro) //muesto nuevamnete el nuevo array
 }
 
-function agregar_carro(distro){
+function agregar_carrito(distro, input) {
 
-    let input = document.getElementById(distro.id).querySelector("input").value;
+    //console.log(distro);
+    //console.log(ingreso)
 
-    console.log = (input)
-    console.log = (distro);
+    let cantidad = parseInt(input);
 
+    if (!isNaN(cantidad)) {
+        const productoEncontrado = carrito.find(itemCarro => itemCarro.id === distro.id);
+        if (productoEncontrado) { //si esta en el carro, verifico la cantidad
+            productoEncontrado.cantidad += cantidad;
+        } else { //si no esta lo agrego al carro
+            distro.input = input;
+            carrito.push(distro);
+        }
+    } else {
+        return alert("Ingrese valores validos");
+    }
+
+    //console.log(carrito);
+    //console.log(distro.input);
+
+    actualizar_carro()
 }
+
+function actualizar_carro(){
+
+    (document.getElementById("tablas")).style.display = "contents"; //muestro la tabla
+
+    let contenedor = document.getElementById("t_body"); //busco el table body
+    contenedor.innerHTML = "";
+
+    carrito.forEach(distro => {
+
+    let tr = document.createElement("tr"); //creo tr y con plantilla creo su contenido
+
+    tr.innerHTML = `
+    
+    <td> ${distro.nombre} </td>
+    <td> ${distro.init} </td>
+    <td> ${distro.base} </td>
+    <td> ${distro.binario} </td>
+    <td> ${distro.input} </td> 
+    <td>  </td> </td> 
+
+    `
+    contenedor.appendChild(tr); //mando al html
+
+    });
+
+} //de no ser porque comente todo me hubiese muerto cuando lo tuve que rearmar, amen por el profe que rompe las bolas por eso 
