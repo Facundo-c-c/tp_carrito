@@ -9,7 +9,7 @@
 </head>
 
 <body>
-  <header>
+  <header id="header">
     <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Distros Linux  </a>
@@ -78,19 +78,15 @@
             </th>
           </tr>
         </thead>
-        <tbody id="t_body">
-
-        </tbody>          
-        <tfoot>
-            <td colspan="7">Distros en el carro</td>
-        </tfoot>
+        <tbody id="t_body"></tbody>          
+        <tfoot id="tfooter"></tfoot>
       </table>
       <div id="aceptar">
         <div class="card text-center mb-3" style="width: 18rem;"  >
           <div class="card-body">
             <h5 class="card-title">Comprar</h5>
             <p class="card-text">al realizar la compra se imprimira un ticket</p>
-            <a href="" class="btn btn-primary">Aceptar</a>
+            <button class="btn btn-primary" onclick="imprimir()" >Aceptar</button>
           </div>
         </div>
       </div>

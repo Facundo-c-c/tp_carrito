@@ -11,7 +11,8 @@ const mis_distros = [
         init: "Runit",
         binario: "Binary",
         base: "Independent",
-        usuario: "Avanzado"
+        usuario: "Avanzado",
+        precio: 200
     },
     {
         id: 2,
@@ -21,7 +22,8 @@ const mis_distros = [
         init: "BSD-style",
         binario: "Source based",
         base: "LFS",
-        usuario: "Experto"
+        usuario: "Experto",
+        precio: 100
     },
     {
         id: 3,
@@ -31,7 +33,8 @@ const mis_distros = [
         init: "BSD-style",
         binario: "Source based",
         base: "Independent",
-        usuario: "Experto"
+        usuario: "Experto",
+        precio: 50
     },
     {
         id: 4,
@@ -41,7 +44,8 @@ const mis_distros = [
         init: "systemd",
         binario: "Binary",
         base: "Independent",
-        usuario: "Avanzado"
+        usuario: "Avanzado",
+        precio: 100
     },
     {
         id: 5,
@@ -51,7 +55,8 @@ const mis_distros = [
         init: "systemd",
         binario: "Binary",
         base: "Independent",
-        usuario: "Avanzado"
+        usuario: "Avanzado",
+        precio: 150
     }, {
         id: 6,
         nombre: "Fedora",
@@ -60,7 +65,8 @@ const mis_distros = [
         init: "systemd",
         binario: "Binary",
         base: "Independent",
-        usuario: "Inexperto"
+        usuario: "Inexperto",
+        precio: 250
     },
     {
         id: 7,
@@ -70,7 +76,8 @@ const mis_distros = [
         init: "systemd",
         binario: "Binary",
         base: "Independent",
-        usuario: "Inexperto"
+        usuario: "Inexperto",
+        precio: 150
     },
     {
         id: 8,
@@ -80,7 +87,8 @@ const mis_distros = [
         init: "Openrc",
         binario: "Source based",
         base: "Independent",
-        usuario: "Experto"
+        usuario: "Experto",
+        precio: 50
     },
     {
         id: 9,
@@ -90,7 +98,8 @@ const mis_distros = [
         init: "Openrc",
         binario: "Source-based",
         base: "Gentoo",
-        usuario: "Experto"
+        usuario: "Experto",
+        precio: 80
     },
     {
         id: 10,
@@ -100,7 +109,8 @@ const mis_distros = [
         init: "systemd",
         binario: "Binary",
         base: "Debian",
-        usuario: "Inexperto"
+        usuario: "Inexperto",
+        precio: 250
     },
     {
         id: 11,
@@ -110,7 +120,9 @@ const mis_distros = [
         init: "No-systemd",
         binario: "Binary",
         base: "Arch",
-        usuario: "Avanza"
+        usuario: "Avanzado",
+        precio: 100,
+
     },
     {
         id: 12,
@@ -120,7 +132,8 @@ const mis_distros = [
         init: "Todos",
         binario: "Source based",
         base: "From scratch",
-        usuario: "Experto +++"
+        usuario: "Experto +++",
+        precio: 10
     },
     {
         id: 13,
@@ -130,7 +143,8 @@ const mis_distros = [
         init: "Openrc",
         binario: "Binary",
         base: "Arch",
-        usuario: "Avanzado"
+        usuario: "Avanzado",
+        precio: 90
     },
     {
         id: 14,
@@ -140,7 +154,8 @@ const mis_distros = [
         init: "systemd",
         binario: "Binary",
         base: "Arch",
-        usuario: "Experto"
+        usuario: "Experto",
+        precio: 140 
     }, {
         id: 15,
         nombre: "Mint",
@@ -149,7 +164,8 @@ const mis_distros = [
         init: "systemd",
         binario: "Binary",
         base: "Ubuntu",
-        usuario: "Inexperto"
+        usuario: "Inexperto",
+        precio: 190
     },
     {
         id: 16,
@@ -159,7 +175,8 @@ const mis_distros = [
         init: "systemd",
         binario: "Binary",
         base: "Debian",
-        usuario: "Inexperto"
+        usuario: "Inexperto",
+        precio: 130,
     },
     {
         id: 17,
@@ -169,7 +186,8 @@ const mis_distros = [
         init: "BSD-style",
         binario: "Binary",
         base: "Independent",
-        usuario: "Avanzado"
+        usuario: "Avanzado",
+        precio: 30
     },
     {
         id: 18,
@@ -179,7 +197,8 @@ const mis_distros = [
         init: "systemd",
         binario: "Binary",
         base: "Independent",
-        usuario: "Inexperto"
+        usuario: "Inexperto",
+        precio: 30,
     },
     {
         id: 19,
@@ -189,7 +208,8 @@ const mis_distros = [
         init: "SysV",
         binario: "Source Based",
         base: "Independent",
-        usuario: "Experto"
+        usuario: "Experto",
+        precio: 40
     },
     {
         id: 20,
@@ -199,7 +219,8 @@ const mis_distros = [
         init: "dinit",
         binario: "Binary",
         base: "Independent",
-        usuario: "Avanzado"
+        usuario: "Avanzado",
+        precio: 120
     },
 ]
 
@@ -226,6 +247,7 @@ function mostrar_distros(distros) {
         let base = document.createElement("p")
         let usuario = document.createElement("p")
         let binario = document.createElement("p")
+        let precio = document.createElement("p")
         let boton = document.createElement("button");
         let input = document.createElement("input");
 
@@ -236,6 +258,7 @@ function mostrar_distros(distros) {
         base.textContent =`Base: ${distro.base}`;
         usuario.textContent = `Usuario: ${distro.usuario}`;
         binario.textContent = `Software: ${distro.binario}`;
+        precio.textContent = `Precio: ${distro.precio}`
         boton.textContent = "Comprar  "
 
 
@@ -256,7 +279,7 @@ function mostrar_distros(distros) {
         input.min = 1;
 
         div_img.appendChild(imagen); //creo estructura padre hijo html
-        div_texto.append(nombre, init, binario, año, base, usuario, input,)
+        div_texto.append(nombre, init, binario, año, base, usuario, precio, input)
         div_btn.appendChild(boton);
         card.append(div_img, div_texto, div_btn);
 
@@ -289,8 +312,8 @@ function buscar() { //buscar en tiempo real
 
 function agregar_carrito(distro, input) {
 
-    console.log(distro);
-    console.log(input);
+    //console.log(distro);
+    //console.log(input);
 
     let cantidad = parseInt(input);
 
@@ -314,35 +337,88 @@ function agregar_carrito(distro, input) {
 
 function actualizar_carro(){
 
-    do{
-    (document.getElementById("tablas")).classList.remove("oculta")//muestro la tabla
-    bandera_carrito = false
-    }while(bandera_carrito)
-    
     let contenedor = document.getElementById("t_body"); //busco el table body
+    let t_footer = document.getElementById("tfooter");
+        
     contenedor.innerHTML = "";
+    t_footer.innerHTML = "";
 
-    let cont = 1;
+    if(carrito.length !== 0){
 
-    carrito.forEach(distro => {
+        do{
+            (document.getElementById("tablas")).classList.remove("oculta")//muestro la tabla
+            bandera_carrito = false
+            }while(bandera_carrito)
+            
+            let cont = 1;
+            let precio = 0;
+        
+            carrito.forEach((distro,index) => {
+        
+            let tr = document.createElement("tr"); //creo tr y con plantilla creo su contenido
+        
+            precio = precio + distro.precio*distro.input
+        
+            tr.innerHTML = `
+            
+            <td>${cont}</td> </td> 
+            <td>${distro.nombre} </td>
+            <td> Init: ${distro.init} </td>
+            <td> Base: ${distro.base} </td>
+            <td> Software: ${distro.binario} </td> 
+            <td> ${distro.input} </td> 
+         
+            <td> <button class="btn btn-secondary" onclick="borar(${index})" >X</button> </td> </td> 
+        
+            `
+            cont++
+         
+            contenedor.appendChild(tr); //mando al html
+            
+            let tfoot = document.getElementById("tfooter");
+            let tr_f = document.createElement("tr");
+        
+            tr_f.innerHTML = `
+            
+            <td colspan="6">Distros en el carro</td>
+            <td> ${precio}$ </td>
+            
+            `
+        
+            tfoot.innerHTML = ``
+            tfoot.appendChild(tr_f);
+        
+            });
+        
+    }else{
+        (document.getElementById("tablas")).classList.add("oculta"); //muestro la tabla
+        bandera_carrito = true;
+    }
 
-    let tr = document.createElement("tr"); //creo tr y con plantilla creo su contenido
+} 
 
-    tr.innerHTML = `
-    
-    <td>${cont}</td> </td> 
-    <td>${distro.nombre} </td>
-    <td> Init: ${distro.init} </td>
-    <td> Base: ${distro.base} </td>
-    <td> Software: ${distro.binario} </td>
-    <td> ${distro.input} </td> 
-    <td> <button class="btn btn-secondary" onclick="" >X</button> </td> </td> 
+function borar(index){
+    console.log(index)
+    carrito.splice(index, 1);
+    actualizar_carro(carrito);
+}
 
-    `
-    cont++
- 
-    contenedor.appendChild(tr); //mando al html
-    
-    });
+function imprimir(){
 
-} //de no ser porque comente todo me hubiese muerto cuando lo tuve que rearmar, amen por el profe que rompe las bolas por eso 
+    let cards = document.getElementById("cards");
+    cards.remove();
+
+    let boton = document.getElementById("aceptar");
+    boton.remove();
+
+    let header = document.getElementById("header");
+    header.remove();
+
+    let footer = document.getElementById("footer");
+    footer.remove();
+
+    window.print();
+
+    location.reload();
+
+}
